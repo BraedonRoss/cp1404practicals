@@ -17,6 +17,7 @@ def main():
             print("Invalid Menu Choice")
         print(MENU)
         menu_choice = input("Choice: ").upper()
+    print("Farewell :)")
 
 
 def get_valid_score():
@@ -26,6 +27,7 @@ def get_valid_score():
         score = int(input("Score: "))
     return score
 
+
 def determine_result(score):
     if score < 50:
         return "Bad"
@@ -34,7 +36,5 @@ def determine_result(score):
     if score <= 100:
         return "Excellent"
 
+
 main()
-
-
-
