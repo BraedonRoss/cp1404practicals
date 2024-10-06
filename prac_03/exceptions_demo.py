@@ -17,3 +17,6 @@ except ZeroDivisionError:
     print("Cannot divide by zero!")
 print("Finished.")
 
+# 1.    A ValueError will occur if the user enters a non integer value such as a float or a string
+# 2.    A ZeroDivisionError will occur if the user inputs 0 as the denominator
+# 3.    Yes, you can change the code to check if the denominator is zero before performing the division.
