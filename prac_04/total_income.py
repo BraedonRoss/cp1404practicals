@@ -17,6 +17,7 @@ def main():
 
 
 def print_report(incomes):
+    """Print a calculated income report."""
     print("\nIncome Report\n-------------")
     total = 0
     for i, income in enumerate(incomes, start=1):
