@@ -7,6 +7,7 @@ FILENAME = "subject_data.txt"
 
 
 def main():
+    """Print a formatted line based on data in a file."""
     data = load_data()
     for subject in data:
         print(f"{subject[0]} is taught by {subject[1]} and has {subject[2]} students")
