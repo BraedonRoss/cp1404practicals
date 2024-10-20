@@ -20,7 +20,7 @@ def read_csv_data(filename):
     with open(filename, "r", encoding="utf-8-sig") as in_file:
         next(in_file)
         for line in in_file:
-            row = line.strip().split(',')
+            row = line.split(',')
             data.append(row)
     return data
 
