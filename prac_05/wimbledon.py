@@ -1,7 +1,16 @@
 FILENAME = "Wimbledon_data.csv"
 
 def main():
-    pass
+    data = read_csv_data(FILENAME)
+    champions_count = process_champions(data)
+    countries = process_countries(data)
+
+    print("Wimbledon Champions:")
+    for champion, count in sorted(champions_count.items()):
+        print(f"{champion: <20} {count}")
+
+    print("\nThese {} countries have won Wimbledon:".format(len(countries)))
+    print(", ".join(countries))
 
 def read_csv_data(filename):
     """Read the Wimbledon CSV file and return the data as a list of lists."""
@@ -32,3 +41,4 @@ def process_champions(data):
             champions_count[champion] = 1
     return champions_count
 
+main()
