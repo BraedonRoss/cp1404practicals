@@ -21,3 +21,14 @@ def process_countries(data):
         countries.add(country)
     return sorted(countries)
 
+def process_champions(data):
+    """Process the data to count the win counts for each champion."""
+    champions_count = {}
+    for row in data:
+        champion = row[1]
+        if champion in champions_count:
+            champions_count[champion] += 1
+        else:
+            champions_count[champion] = 1
+    return champions_count
+
