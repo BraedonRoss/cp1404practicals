@@ -5,6 +5,7 @@ Actual:   13 minutes
 """
 
 def main():
+    """Extract a name from an inputted email and print a list of names and associated emails."""
     email_to_name = {}
 
     email = input("Email: ")
