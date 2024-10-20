@@ -13,3 +13,11 @@ def read_csv_data(filename):
             data.append(row)
     return data
 
+def process_countries(data):
+    """Process the data to extract unique countries of champions."""
+    countries = set()
+    for row in data:
+        country = row[2]
+        countries.add(country)
+    return sorted(countries)
+
