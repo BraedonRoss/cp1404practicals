@@ -1,6 +1,6 @@
 '''
 Estimated Time: 30 mins
-Actual Time:
+Actual Time: 20 mins
 
 '''
 
@@ -12,4 +12,7 @@ class ProgrammingLanguage:
         self.year = year
 
     def is_dynamic(self):
-        return self.typing == 'dynamic'
+        return self.typing == 'Dynamic'
+
+    def __str__(self):
+        return f"{self.name}, {self.typing} Typing, Reflection={self.reflection}, First appeared in {self.year}"
