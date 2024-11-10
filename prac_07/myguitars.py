@@ -13,6 +13,20 @@ def main():
     print("\nGuitars sorted by year:")
     display_guitars(guitars)
 
+
+    name = input("Enter guitar name (or Enter to quit): ")
+    while name != "":
+        year = int(input("Enter year: "))
+        cost = float(input("Enter cost: "))
+        guitars.append(Guitar(name, year, cost))
+        name = input("Enter guitar name (or Enter to quit): ")
+
+    with open(FILENAME, 'w') as file:
+        for guitar in guitars:
+            file.write(f"{guitar.name},{guitar.year},{guitar.cost}\n")
+
+
+
 def read_guitars(filename):
     """Read guitars from a given file and return a list of Guitar objects."""
     guitars = []
