@@ -62,7 +62,20 @@ def save_projects(projects, filename=FILENAME):
 
 
 def display_projects(projects):
-    pass
+    """Print a neat list of projects sorted by priority."""
+    incomplete_projects = [project for project in projects if not project.is_complete()]
+    complete_projects = [project for project in projects if project.is_complete()]
+
+    incomplete_projects.sort()
+    complete_projects.sort()
+
+    print("Incomplete projects:")
+    for project in incomplete_projects:
+        print(f"  {project}")
+
+    print("Completed projects:")
+    for project in complete_projects:
+        print(f"  {project}")
 
 
 def filter_projects_by_date(projects, filter_date):
