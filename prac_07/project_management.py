@@ -1,5 +1,6 @@
 import datetime
 from operator import attrgetter
+
 from project import Project
 
 FILENAME = "projects.txt"
@@ -90,6 +91,23 @@ def filter_projects_by_date(projects, filter_date):
 
 def update_project(projects):
     """Update an existing project in a list."""
+    print("Choose a project to update:")
+    for i, project in enumerate(projects):
+        print(f"{i} {project}")
+
+    choice = int(input("Project Choice: "))
+    project = projects[choice]
+
+    new_percentage = int(input("New Percentage: "))
+    new_priority = int(input("New Priority: "))
+
+    project.completion_percentage = new_percentage
+    project.priority = new_priority
+
+    project.update(
+        percentage=int(new_percentage) if new_percentage else None,
+        priority=int(new_priority) if new_priority else None
+    )
 
 
 def add_project(projects):
