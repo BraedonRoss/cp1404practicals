@@ -1,3 +1,5 @@
+from fileinput import filename
+
 from project import Project
 
 
@@ -50,8 +52,13 @@ def load_projects(filename=FILENAME):
     return projects
 
 
-def save_projects(projects, filename):
-    pass
+def save_projects(projects, filename=FILENAME):
+    """Save list to a text file."""
+    with open(filename, 'w') as file:
+        file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
+        for project in projects:
+            file.write(f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t"
+                       f"{project.priority}\t${project.cost_estimate:.2f}\t{project.completion_percentage}\n")
 
 
 def display_projects(projects):
