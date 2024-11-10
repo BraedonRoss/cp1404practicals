@@ -15,6 +15,9 @@ class Guitar:
     def __str__(self):
         return f"{self.name} ({self.year}) : ${self.cost}"
 
+    def __lt__(self, other):
+        return self.year < other.year
+
     def get_age(self):
         return YEAR - self.year
 
