@@ -1,7 +1,6 @@
-from fileinput import filename
-
+import datetime
+from operator import attrgetter
 from project import Project
-
 
 FILENAME = "projects.txt"
 MENU = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project\n- (U)pdate project\n- (Q)uit"
@@ -38,6 +37,7 @@ def main():
     if save_choice == 'y':
         save_projects(projects)
     print("Thank you for using custom-built project management software.")
+
 
 def load_projects(filename=FILENAME):
     """Load projects from a text file."""
@@ -79,7 +79,13 @@ def display_projects(projects):
 
 
 def filter_projects_by_date(projects, filter_date):
-    pass
+    """Filter projects after a date."""
+    date_obj = datetime.datetime.strptime(filter_date, "%d/%m/%Y").date()
+    filtered_projects = [project for project in projects if project.match_start_date(date_obj)]
+
+    print("Filtered projects:")
+    for project in sorted(filtered_projects, key=attrgetter('start_date')):
+        print(f"  {project}")
 
 
 def update_project(projects):
@@ -88,4 +94,3 @@ def update_project(projects):
 
 def add_project(projects):
     pass
-
