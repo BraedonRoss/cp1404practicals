@@ -3,9 +3,14 @@ from guitar import Guitar
 FILENAME = "Guitars.csv"
 
 def main():
+    """Read a csv file and print a list of guitar objects."""
     guitars = read_guitars(FILENAME)
 
     print("Guitars read from file:")
+    display_guitars(guitars)
+
+    guitars.sort()
+    print("\nGuitars sorted by year:")
     display_guitars(guitars)
 
 def read_guitars(filename):
@@ -25,3 +30,5 @@ def display_guitars(guitars):
     """Display a list of guitars."""
     for guitar in guitars:
         print(guitar)
+
+main()
