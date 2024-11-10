@@ -37,8 +37,17 @@ def main():
         save_projects(projects)
     print("Thank you for using custom-built project management software.")
 
-def load_projects():
-    pass
+def load_projects(filename=FILENAME):
+    """Load projects from a text file."""
+    projects = []
+    with open(filename, 'r') as file:
+        file.readline()
+        for line in file:
+            parts = line.strip().split('\t')
+            name, start_date, priority, cost_estimate, completion_percentage = parts
+            projects.append(Project(name, start_date, int(priority), cost_estimate, int(completion_percentage)))
+    print(f"Loaded {len(projects)} projects from {filename}")
+    return projects
 
 
 def save_projects(projects, filename):
