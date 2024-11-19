@@ -4,6 +4,7 @@ BoxLayout:
         orientation: 'horizontal'
         TextInput:
             id: miles_input
+            on_text: app.handle_calculation()
         BoxLayout:
             orientation: 'vertical'
             size_hint_x: 0.25
@@ -16,7 +17,7 @@ BoxLayout:
 
     Button:
         text: 'Convert m to km'
-        on_press: app.handle_calculate()
+        on_press: app.handle_calculation()
 
     Label:
         id: output_label
