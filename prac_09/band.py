@@ -13,3 +13,7 @@ class Band:
     def add(self, musician):
         """Add a musician to the band."""
         self.musicians.append(musician)
+
+    def play(self):
+        """Return a string showing each musician playing their first instrument or needing one."""
+        return "\n".join(musician.play() for musician in self.musicians)
