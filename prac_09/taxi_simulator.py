@@ -40,7 +40,17 @@ def main():
 
 def choose_taxi(taxis):
     """Allow the user to choose a taxi."""
-    pass
+    print("Taxis available:")
+    display_taxis(taxis)
+    try:
+        taxi_choice = int(input("Choose taxi: "))
+        if 0 <= taxi_choice < len(taxis):
+            return taxis[taxi_choice]
+        else:
+            print("Invalid taxi choice")
+    except ValueError:
+        print("Invalid input")
+    return None
 
 
 
@@ -51,7 +61,8 @@ def drive_taxi(taxi):
 
 def display_taxis(taxis):
     """Display the list of taxis."""
-    pass
+    for i, taxi in enumerate(taxis):
+        print(f"{i} - {taxi}")
 
 
 
