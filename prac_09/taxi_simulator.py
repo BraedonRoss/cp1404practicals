@@ -56,7 +56,16 @@ def choose_taxi(taxis):
 
 def drive_taxi(taxi):
     """Drive the selected taxi and return the trip cost."""
-    pass
+    try:
+        distance = int(input("Drive how far? "))
+        taxi.start_fare()
+        taxi.drive(distance)
+        trip_cost = taxi.get_fare()
+        print(f"Your {taxi.name} trip cost you ${trip_cost:.2f}")
+        return trip_cost
+    except ValueError:
+        print("Invalid input")
+        return 0.0
 
 
 def display_taxis(taxis):
